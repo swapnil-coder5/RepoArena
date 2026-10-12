@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An open-source AI debate harness. Two proposals. One critique. An inspectable verdict.">
+  <title>RepoArena — Put your ideas to the test</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="RepoArena home"><img src="/icon.svg" alt="" width="36" height="36"><span>repo<span class="muted">arena</span><sup>β</sup></span></a>
+      <div class="workspace-tag"><span class="tiny-dot"></span> OPEN-SOURCE WORKSPACE</div>
+      <nav aria-label="Main navigation"><a class="nav-link selected" href="#arena"><span>◈</span> The arena <span class="nav-pill">01</span></a><a class="nav-link" href="#how-it-works"><span>⌘</span> How it works</a><button class="nav-link" id="export-side" disabled><span>↗</span> Export session</button></nav>
+      <div class="sidebar-note"><span class="eyebrow">BUILT IN THE OPEN</span><p>Better ideas survive<br>a little resistance.</p><div class="note-rule"></div><span>Original harness · MIT licensed</span></div>
+      <div id="connection-box" class="connection-box"><span id="connection-dot" class="status-dot"></span><div><strong id="connection-label">Checking Ollama</strong><small id="connection-detail">Local inference provider</small></div><button id="refresh-models" title="Refresh model connection" aria-label="Refresh model connection">↻</button></div>
+    </aside>
+    <main id="arena">
+      <header class="topbar"><div><span class="muted">Workspace</span><span class="slash">/</span>The arena</div><span class="top-badge">OPEN-WEIGHT AI · HUMAN JUDGMENT</span></header>
+      <section class="hero"><div><div class="eyebrow"><span class="tiny-dot"></span> YOUR NEXT IDEA, UNDER PRESSURE</div><h1>Good ideas deserve<br>a worthy <span>challenger.</span></h1><p>Two builders. One skeptic. An inspectable verdict.<br>Turn an engineering problem into a debate worth having.</p></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="art-node node-a">A</div><div class="art-center">vs</div><div class="art-node node-b">B</div><div class="art-caption">THINK. CHALLENGE. REFINE.</div><span class="spark spark-one">+</span><span class="spark spark-two">+</span></div></section>
+      <section class="workbench">
+        <div class="section-heading"><h2><span class="section-number">01</span> Set the challenge</h2><button id="load-example" class="text-button">Try an example <span>↗</span></button></div>
+        <form id="arena-form">
+          <div class="input-grid"><div class="problem-input"><label for="issue">What are we solving?</label><textarea id="issue" maxlength="8000" placeholder="e.g. How should we build a password-reset flow that’s secure, simple, and easy to test?" required minlength="10"></textarea><div class="input-foot"><span>Paste a GitHub issue or describe a problem</span><span id="char-count">0 / 8,000</span></div></div><div class="context-input"><label for="context">Give the agents some context <span>OPTIONAL</span></label><textarea id="context" maxlength="16000" placeholder="Your stack, constraints, users, existing architecture…"></textarea><div class="input-foot">A little context makes a better debate.</div></div></div>
+          <div class="run-controls"><div class="mode-switch" role="group" aria-label="Inference mode"><button type="button" data-mode="sample" class="active" aria-pressed="true">◉ Sample replay</button><button type="button" data-mode="live" aria-pressed="false">⚡ Live Ollama</button></div><div class="model-field"><label for="model">MODEL</label><select id="model" aria-label="Ollama model" disabled><option value="">Curated sample</option></select></div><button id="run-button" class="primary-button" type="submit">Enter the arena <span>→</span></button></div>
+          <p class="mode-notice" id="mode-notice">Sample replay uses a fixed password-reset challenge and curated responses. No AI inference runs.</p>
+        </form>
+      </section>
+      <div id="error-box" class="error-box" role="alert" hidden></div>
+      <section class="arena-results" aria-labelledby="debate-title">
+        <div class="section-heading"><h2 id="debate-title"><span class="section-number">02</span> Watch the ideas collide</h2><div class="live-status" id="run-status" role="status" aria-live="polite"><span class="status-dot"></span> Waiting for a challenge</div></div>
+        <div class="pipeline" aria-label="Arena stages"><div data-step="A"><span>1</span> Builder A <small>THE PRAGMATIST</small></div><i>→</i><div data-step="B"><span>2</span> Builder B <small>THE ARCHITECT</small></div><i>→</i><div data-step="critique"><span>3</span> The skeptic <small>STRESS TEST</small></div><i>→</i><div data-step="judgment"><span>4</span> The judge <small>WEIGH THE EVIDENCE</small></div></div>
+        <div id="session-banner" class="session-banner" hidden></div>
+        <div class="candidate-grid"><article class="candidate-card candidate-a"><div class="candidate-header"><div class="avatar">A</div><div><h3>The pragmatist</h3><span>Simple. Focused. Maintainable.</span></div><span class="candidate-label">BUILDER A</span></div><div id="proposal-A" class="proposal-body"><div class="empty-state"><div class="empty-glyph">⌁</div><h4>The simplest path forward.</h4><p>A lean solution built around<br>what matters most.</p></div></div></article><article class="candidate-card candidate-b"><div class="candidate-header"><div class="avatar">B</div><div><h3>The architect</h3><span>Resilient. Thorough. Deliberate.</span></div><span class="candidate-label">BUILDER B</span></div><div id="proposal-B" class="proposal-body"><div class="empty-state"><div class="empty-glyph">⌘</div><h4>A design for the edge cases.</h4><p>A different perspective with<br>defense in depth.</p></div></div></article></div>
+        <article id="critique-card" class="critique-card" hidden><div class="card-title"><span class="role-icon">◎</span><div><h3>The skeptic’s review</h3><p>Where the proposals bend. Where they might break.</p></div></div><div id="critique-content" class="critique-grid"></div></article>
+        <article id="verdict-card" class="verdict-card" hidden><div class="verdict-top"><div><div class="eyebrow">THE VERDICT</div><h2 id="winner-title"></h2></div><span class="verdict-badge" id="verdict-badge"></span></div><p id="verdict-reason"></p><div id="score-table"></div><div class="next-steps"><h4>Make the next move</h4><ol id="next-steps"></ol></div><div class="verdict-foot"><span>Model assessments guide review; they do not verify correctness.</span><button id="export-button" class="secondary-button">Export evidence ↗</button></div></article>
+        <details id="trace-panel" class="trace-panel" hidden><summary>Inspect the harness <span>Prompts, raw responses & timing</span></summary><div id="trace-content"></div></details>
+      </section>
+      <section id="how-it-works" class="how-it-works"><div class="eyebrow">MORE THAN A CHAT WINDOW</div><h2>A small harness. A visible process.</h2><div class="explainer-grid"><div><span>01 / DIVERGE</span><h3>Independent approaches</h3><p>Two roles see the same problem and constraints. Neither sees the other’s first proposal.</p></div><div><span>02 / CHALLENGE</span><h3>Critique with a purpose</h3><p>A skeptic names failure modes and proposes tests for both candidates.</p></div><div><span>03 / EVALUATE</span><h3>A rubric you can inspect</h3><p>Correctness 40%, security 35%, testability 25%. The harness calculates the result.</p></div></div></section>
+      <footer><span><strong>repoarena</strong> / Build in the open.</span><span>Runs with Ollama · No account required · MIT</span></footer>
+    </main>
+  </div>
+</body>
+</html>
