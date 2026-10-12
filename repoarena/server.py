@@ -42,7 +42,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.json_response(200, {"available": False, "models": [], "error": str(exc)})
         elif path == "/api/example":
             self.json_response(200, {"issue": ISSUE, "context": CONTEXT})
-        elif path in ("/", "/styles.css", "/app.js", "/icon.svg"):
+        elif path in ("/", "/styles.css", "/theme.css", "/app.js", "/icon.svg"):
             name = "index.html" if path == "/" else path[1:]
             mime = {"html": "text/html", "css": "text/css", "js": "text/javascript", "svg": "image/svg+xml"}[name.rsplit(".", 1)[-1]]
             body = (WEB / name).read_bytes()

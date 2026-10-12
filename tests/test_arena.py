@@ -109,7 +109,7 @@ class HTTPTests(unittest.TestCase):
     def test_health_and_static_assets(self):
         with self.request('/api/health') as response:
             self.assertEqual(json.load(response)['status'], 'ok')
-        for path, expected in [('/', b'RepoArena'), ('/app.js', b'runArena'), ('/styles.css', b'--lime'), ('/icon.svg', b'<svg')]:
+        for path, expected in [('/', b'RepoArena'), ('/app.js', b'runArena'), ('/styles.css', b'--lime'), ('/theme.css', b'--bg'), ('/icon.svg', b'<svg')]:
             with self.subTest(path=path), self.request(path) as response:
                 self.assertIn(expected, response.read())
                 self.assertIn("default-src 'self'", response.headers['Content-Security-Policy'])

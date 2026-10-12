@@ -1,0 +1,140 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f0e2;
+  --panel: #fffdf7;
+  --panel2: #eee7d3;
+  --line: #d5ccb2;
+  --text: #27311f;
+  --muted: #68705a;
+  --lime: #66763f;
+  --purple: #7b8550;
+  --cyan: #879467;
+}
+
+body {
+  background:
+    radial-gradient(circle at 78% 6%, rgb(139 151 94 / 14%), transparent 28rem),
+    radial-gradient(circle at 30% 38%, rgb(255 255 255 / 70%), transparent 34rem),
+    var(--bg);
+}
+
+.sidebar { background: #eee8d8; }
+.workspace-tag { color: #6d745d; }
+.nav-link { color: #59634c; }
+.nav-link:hover { background: #e2dcc8; }
+.nav-link.selected { background: #dce2c8; color: #344221; }
+.nav-pill { background: #c8d0aa; }
+.sidebar-note p { color: #465039; }
+.sidebar-note > span:last-child { color: #737a66; }
+.top-badge { border-color: #c9c1a8; color: #59634b; background: rgb(255 253 247 / 75%); }
+.slash { color: #9a927d; }
+
+.hero h1 span,
+.text-button,
+.explainer-grid > div > span { color: #66763f; }
+.orbit { border-color: #a5ae7b; }
+.orbit-two { border-color: #cbc3a8; }
+.art-node {
+  border-color: #85935c;
+  background: linear-gradient(135deg, #e1e6c8, #fffdf6);
+  color: #4d5d2c;
+  box-shadow: 0 18px 45px rgb(72 75 46 / 16%);
+}
+.node-b {
+  color: #fffdf6;
+  border-color: #5c6b37;
+  background: linear-gradient(135deg, #7b8950, #536131);
+}
+.art-center { color: #777b67; }
+.art-caption { color: #777e68; }
+
+.workbench,
+.candidate-card,
+.critique-card { box-shadow: 0 16px 42px rgb(74 69 43 / 9%); }
+.input-grid label { color: #38422e; }
+.input-grid label span,
+.input-foot,
+.section-number,
+.mode-notice,
+.live-status { color: #747b65; }
+textarea {
+  background: #fffef9;
+  color: #2c3524;
+  border-color: #cec5aa;
+}
+textarea::placeholder { color: #717764; }
+.mode-switch { background: #ebe5d3; border-color: #cbc2a7; }
+.mode-switch button { color: #656d57; }
+.mode-switch button.active { background: #77864c; color: #fffdf7; }
+.model-field label { color: #6f765f; }
+.model-field select { background: #f1ecdd; color: #3d472f; border: 1px solid #d0c7ad; }
+.primary-button {
+  border-color: #4f5f2f;
+  background: #66763f;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgb(86 101 50 / 18%);
+}
+.primary-button:hover { background: #53632f; }
+
+.pipeline { background: #fffdf7; border-color: #d6cdb4; }
+.pipeline > div { color: #515b45; }
+.pipeline > div > span { border-color: #9da77c; }
+.pipeline small { color: #777e68; }
+.pipeline i { color: #aaa28d; }
+.pipeline .done > span { background: #dfe5c9; border-color: #82905b; }
+
+.candidate-card { border-color: #c8cda9; }
+.candidate-b { border-color: #aeb78a; }
+.candidate-header {
+  border-color: #c7cdaa;
+  background: linear-gradient(110deg, #eef0da, #fffdf7);
+}
+.candidate-b .candidate-header {
+  border-color: #aeb98a;
+  background: linear-gradient(110deg, #dfe5c7, #f8f5e8);
+}
+.avatar { background: #d8dfbb; color: #445326; }
+.candidate-b .avatar { background: #687840; color: #ffffff; }
+.candidate-header div > span { color: #737a66; }
+.candidate-label { color: #667542; }
+.candidate-b .candidate-label { color: #596a35; }
+.empty-glyph { color: #87945f; }
+.candidate-b .empty-glyph { color: #6b7849; }
+.empty-state h4 { color: #48513d; }
+.empty-state p,
+.proposal-body p,
+.proposal-body li { color: #5f6755; }
+.stage-metric { color: #767d69; }
+
+.session-banner { border-color: #c8b77a; background: #fff8db; color: #69571e; }
+.critique-card { border-color: #c8bca5; }
+.role-icon { background: #e8dcc6; color: #69583c; }
+.critique-grid h4 { color: #69583c; }
+.critique-grid h5 { color: #414a37; }
+.critique-grid li { color: #5f6755; }
+
+.verdict-card {
+  background: linear-gradient(130deg, #e1e7c8, #f5f1df 55%, #fffdf7);
+  border-color: #9eaa71;
+}
+.verdict-badge { border-color: #7e8c55; color: #435224; }
+#verdict-reason { color: #56604a; }
+th, td { border-color: #c3cbaa; }
+th { color: #687159; }
+td { color: #35402d; }
+td:first-child { color: #59634d; }
+.next-steps li { color: #4f5945; }
+.verdict-foot { border-color: #c3cbaa; }
+.verdict-foot > span { color: #68715c; }
+.secondary-button { background: #66763f; color: #ffffff; border-color: #53612f; }
+
+.trace-panel summary { color: #46513a; }
+.trace-panel summary span { color: #747b67; }
+.trace-panel pre { background: #f1ecdd; color: #424b38; }
+.how-it-works > .eyebrow,
+.explainer-grid p,
+footer { color: #68705c; }
+footer strong { color: #404a35; }
+.error-box { border-color: #b56c65; background: #fff0ed; color: #7d302a; }
+.loading-copy { color: #5e6752; }
+.spinner { border-color: #c8c1aa; border-top-color: var(--lime); }
